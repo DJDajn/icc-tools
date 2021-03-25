@@ -144,7 +144,6 @@ function StdUi:ScrollFrame(parent, width, height, scrollChild)
 	panel.scrollBarWidth = 16;
 
 	local scrollFrame = CreateFrame('ScrollFrame', nil, panel);
-	scrollFrame.stdUi = self;
 	local scrollBar = self:ScrollBar(panel, panel.scrollBarWidth);
 	scrollBar:SetMinMaxValues(0, 0);
 	scrollBar:SetValue(0);

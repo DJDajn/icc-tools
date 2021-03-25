@@ -218,7 +218,7 @@ function IcecrownGroupInviter:DrawProgressWindow()
 
     local balanceMessage
     if (self.configDB.balanceMessage == nil) then
-        balanceMessage = "Please head over to {city} near the AH. Your balance is {balance} gold."
+        balanceMessage = "Hi! Please head over to {city} near the AH. Your remaining balance is {balance} gold."
     else
         balanceMessage = self.configDB.balanceMessage
     end

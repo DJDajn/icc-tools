@@ -4,7 +4,7 @@ if not StdUi then
 	return
 end
 
-local module, version = 'EditBox', 7;
+local module, version = 'EditBox', 9;
 if not StdUi:UpgradeNeeded(module, version) then return end;
 
 local pairs = pairs;
@@ -106,9 +106,9 @@ end
 function StdUi:SearchEditBox(parent, width, height, placeholderText)
 	local editBox = self:SimpleEditBox(parent, width, height, '');
 
-	self:ApplyPlaceholder(editBox, placeholderText, [[Interface\Common\UI-Searchbox-Icon]]);
-
 	editBox:SetScript('OnTextChanged', SearchEditBoxOnTextChanged);
+	
+	self:ApplyPlaceholder(editBox, placeholderText, [[Interface\Common\UI-Searchbox-Icon]]);
 
 	return editBox;
 end
@@ -179,7 +179,6 @@ function StdUi:EditBox(parent, width, height, text, validator)
 
 	local editBox = self:SimpleEditBox(parent, width, height, text);
 	editBox.validator = validator;
-	editBox.stdUi = self;
 
 	local button = self:Button(editBox, 40, height - 4, OKAY);
 	button:SetPoint('RIGHT', -2, 0);
@@ -340,12 +339,12 @@ end
 function StdUi:MultiLineBox(parent, width, height, text)
 	local editBox = CreateFrame('EditBox');
 	local widget = self:ScrollFrame(parent, width, height, editBox);
+	editBox.stdUi = self;
 
 	local scrollFrame = widget.scrollFrame;
 	scrollFrame.editBox = editBox;
 	widget.editBox = editBox;
 	editBox.panel = widget;
-	editBox.stdUi = self;
 
 	self:ApplyBackdrop(widget, 'button');
 	self:HookHoverBorder(scrollFrame);

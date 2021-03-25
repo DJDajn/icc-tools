@@ -43,8 +43,6 @@ function StdUi:Label(parent, text, size, inherit, width, height)
 		fs:SetFontSize(size);
 	end
 
-	fs.stdUi = self;
-
 	self:SetTextColor(fs, 'normal');
 	self:SetObjSize(fs, width, height);
 

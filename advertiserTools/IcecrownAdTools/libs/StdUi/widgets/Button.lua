@@ -87,7 +87,6 @@ end
 --- @return Button
 function StdUi:HighlightButton(parent, width, height, text, inherit)
 	local button = CreateFrame('Button', nil, parent, inherit);
-	button.stdUi = self;
 	self:InitWidget(button);
 	self:SetObjSize(button, width, height);
 	button.text = self:ButtonLabel(button, text);
